@@ -1,0 +1,219 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Video Gallery</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVideoModal">
+      <i class="fas fa-plus me-1"></i> Add New Video
+    </button>
+  </div>
+  
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Manage Videos</h6>
+      <div class="dropdown no-arrow">
+        <a class="dropdown-toggle" href="#" role="button" id="videoFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-filter fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="videoFilterDropdown">
+          <li><a class="dropdown-item" href="#">All Videos</a></li>
+          <li><a class="dropdown-item" href="#">Published</a></li>
+          <li><a class="dropdown-item" href="#">Drafts</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Sort by Date</a></li>
+          <li><a class="dropdown-item" href="#">Sort by Title</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- Video Item 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <video controls poster="https://via.placeholder.com/400x225">
+              <source src="#" type="video/mp4">
+              Your browser does not support the video.
+            </video>
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editVideoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'video')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Company Introduction</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-06-10</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Video Item 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <video controls poster="https://via.placeholder.com/400x225">
+              <source src="#" type="video/mp4">
+              Your browser does not support the video.
+            </video>
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editVideoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'video')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Product Showcase 2025</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2025-04-07</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Video Item 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <video controls poster="https://via.placeholder.com/400x225">
+              <source src="#" type="video/mp4">
+              Your browser does not support the video.
+            </video>
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editVideoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'video')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Customer Testimonials</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2025-04-15</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Video Modal -->
+  <div class="modal fade" id="addVideoModal" tabindex="-1" aria-labelledby="addVideoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addVideoModalLabel">Add New Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="videoTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="videoTitle" required>
+              <div class="invalid-feedback">
+                Please provide a title.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="videoFile" class="form-label">Video File</label>
+              <input class="form-control" type="file" id="videoFile" accept="video/*" required>
+              <div class="invalid-feedback">
+                Please select a video file.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="videoPoster" class="form-label">Thumbnail Image</label>
+              <input class="form-control" type="file" id="videoPoster" accept="image/*" onchange="previewImage(this, 'videoPosterPreview')">
+              <div class="mt-2">
+                <img id="videoPosterPreview" src="https://via.placeholder.com/400x225" alt="Thumbnail Preview" class="img-thumbnail" style="max-width: 100%;">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="videoDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="videoDescription" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="videoCategory" class="form-label">Category</label>
+              <select class="form-select" id="videoCategory">
+                <option value="">Select category</option>
+                <option value="promotional">Promotional</option>
+                <option value="tutorial">Tutorial</option>
+                <option value="testimonial">Testimonial</option>
+                <option value="event">Event</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="videoPublished" checked>
+                <label class="form-check-label" for="videoPublished">
+                  Published
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Add Video</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Edit Video Modal -->
+  <div class="modal fade" id="editVideoModal" tabindex="-1" aria-labelledby="editVideoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editVideoModalLabel">Edit Video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="editVideoTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="editVideoTitle" value="Company Introduction" required>
+              <div class="invalid-feedback">
+                Please provide a title.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="editVideoFile" class="form-label">Video File</label>
+              <input class="form-control" type="file" id="editVideoFile" accept="video/*">
+              <small class="form-text text-muted">Leave empty to keep current video.</small>
+            </div>
+            <div class="mb-3">
+              <label for="editVideoPoster" class="form-label">Thumbnail Image</label>
+              <input class="form-control" type="file" id="editVideoPoster" accept="image/*" onchange="previewImage(this, 'editVideoPosterPreview')">
+              <small class="form-text text-muted">Leave empty to keep current thumbnail.</small>
+              <div class="mt-2">
+                <img id="editVideoPosterPreview" src="https://via.placeholder.com/400x225" alt="Thumbnail Preview" class="img-thumbnail" style="max-width: 100%;">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="editVideoDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="editVideoDescription" rows="3">A comprehensive introduction to our company, products, and services.</textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editVideoCategory" class="form-label">Category</label>
+              <select class="form-select" id="editVideoCategory">
+                <option value="">Select category</option>
+                <option value="promotional" selected>Promotional</option>
+                <option value="tutorial">Tutorial</option>
+                <option value="testimonial">Testimonial</option>
+                <option value="event">Event</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="editVideoPublished" checked>
+                <label class="form-check-label" for="editVideoPublished">
+                  Published
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

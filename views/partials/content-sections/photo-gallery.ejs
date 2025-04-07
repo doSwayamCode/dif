@@ -1,0 +1,255 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h1 class="h2">Photo Gallery</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPhotoModal">
+      <i class="fas fa-plus me-1"></i> Add New Photo
+    </button>
+  </div>
+  
+  <div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h6 class="m-0 font-weight-bold text-primary">Manage Photos</h6>
+      <div class="dropdown no-arrow">
+        <a class="dropdown-toggle" href="#" role="button" id="photoFilterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-filter fa-sm fa-fw text-gray-400"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="photoFilterDropdown">
+          <li><a class="dropdown-item" href="#">All Photos</a></li>
+          <li><a class="dropdown-item" href="#">Published</a></li>
+          <li><a class="dropdown-item" href="#">Drafts</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Sort by Date</a></li>
+          <li><a class="dropdown-item" href="#">Sort by Title</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <!-- Photo Item 1 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <img src="https://via.placeholder.com/400x300" alt="Company Event">
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editPhotoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'photo')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Company Event 2023</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-06-10</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Photo Item 2 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <img src="https://via.placeholder.com/400x300" alt="Product Showcase">
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editPhotoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'photo')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Product Showcase</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-05-22</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Photo Item 3 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <img src="https://via.placeholder.com/400x300" alt="Team Photo">
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editPhotoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'photo')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Our Team</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-04-15</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Photo Item 4 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <img src="https://via.placeholder.com/400x300" alt="Office Building">
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editPhotoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'photo')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Headquarters</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-03-20</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Photo Item 5 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <img src="https://via.placeholder.com/400x300" alt="Product Manufacturing">
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editPhotoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'photo')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Manufacturing Process</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-02-15</small>
+                <span class="badge bg-secondary">Draft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Photo Item 6 -->
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="media-item">
+            <img src="https://via.placeholder.com/400x300" alt="Client Meeting">
+            <div class="media-actions">
+              <button class="btn btn-sm btn-light me-1" data-bs-toggle="modal" data-bs-target="#editPhotoModal"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(event, 'photo')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="media-title">
+              <h6 class="mb-1">Client Meeting</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Added: 2023-01-10</small>
+                <span class="badge bg-success">Published</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Photo Modal -->
+  <div class="modal fade" id="addPhotoModal" tabindex="-1" aria-labelledby="addPhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPhotoModalLabel">Add New Photo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="photoTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="photoTitle" required>
+              <div class="invalid-feedback">
+                Please provide a title.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="photoFile" class="form-label">Photo</label>
+              <input class="form-control" type="file" id="photoFile" accept="image/*" required onchange="previewImage(this, 'photoPreview')">
+              <div class="invalid-feedback">
+                Please select a photo
+              </div>
+              <div class="mt-2">
+                <img id="photoPreview" src="https://via.placeholder.com/400x300" alt="Photo Preview" class="img-thumbnail" style="max-width: 100%;">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="photoDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="photoDescription" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="photoCategory" class="form-label">Category</label>
+              <select class="form-select" id="photoCategory">
+                <option value="">Select category</option>
+                <option value="events">About Us</option>
+                <option value="products">School Scholars</option>
+                <option value="team">DIF Think Tank</option>
+                <!-- <option value="facilities">Facilities</option>
+                <option value="other">Other</option> -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="photoPublished" checked>
+                <label class="form-check-label" for="photoPublished">
+                  Published
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Add Photo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Edit Photo Modal -->
+  <div class="modal fade" id="editPhotoModal" tabindex="-1" aria-labelledby="editPhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editPhotoModalLabel">Edit Photo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="editPhotoTitle" class="form-label">Title</label>
+              <input type="text" class="form-control" id="editPhotoTitle" value="Company Event 2023" required>
+              <div class="invalid-feedback">
+                Please provide a title.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="editPhotoFile" class="form-label">Photo</label>
+              <input class="form-control" type="file" id="editPhotoFile" accept="image/*" onchange="previewImage(this, 'editPhotoPreview')">
+              <small class="form-text text-muted">Leave empty to keep current photo.</small>
+              <div class="mt-2">
+                <img id="editPhotoPreview" src="https://via.placeholder.com/400x300" alt="Photo Preview" class="img-thumbnail" style="max-width: 100%;">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="editPhotoDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="editPhotoDescription" rows="3">Annual company event showcasing our achievements and future plans.</textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editPhotoCategory" class="form-label">Category</label>
+              <select class="form-select" id="editPhotoCategory">
+                <option value="">Select category</option>
+                <option value="events" selected>About Us</option>
+                <option value="products">School Scholars</option>
+                <option value="team">DIF Think Tank</option>
+                <!-- <option value="facilities">Facilities</option>
+                <option value="other">Other</option> -->
+              </select>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="editPhotoPublished" checked>
+                <label class="form-check-label" for="editPhotoPublished">
+                  Published
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

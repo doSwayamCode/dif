@@ -1,0 +1,49 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+    <div class="position-sticky pt-3">
+      <div class="text-center mb-4">
+        <img src="/img/logo-placeholder.png" alt="Dharti International" class="img-fluid px-4">
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link <%= page === 'dashboard' ? 'active' : '' %>" href="/">
+            <i class="fas fa-tachometer-alt me-2"></i>
+            Admin Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= page === 'social-media' ? 'active' : '' %>" href="/social-media">
+            <i class="fas fa-share-alt me-2"></i>
+            Social Media Links
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle <%= page === 'photo-gallery' || page === 'video-gallery' ? 'active' : '' %>" href="#" id="mediaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-photo-video me-2"></i>
+            Media Management
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="mediaDropdown">
+            <li><a class="dropdown-item <%= page === 'photo-gallery' ? 'active' : '' %>" href="/photos">Photo Gallery</a></li>
+            <li><a class="dropdown-item <%= page === 'video-gallery' ? 'active' : '' %>" href="/videos">Video Gallery</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= page === 'user-management' ? 'active' : '' %>" href="/users">
+            <i class="fas fa-users me-2"></i>
+            User Management
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-cog me-2"></i>
+            Settings
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="settingsDropdown">
+            <li><a class="dropdown-item" href="#">General Settings</a></li>
+            <li><a class="dropdown-item" href="#">Site Configuration</a></li>
+            <li><a class="dropdown-item" href="#">Backup & Restore</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

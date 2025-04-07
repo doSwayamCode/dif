@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header') %>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <%- include('partials/sidebar') %>
+      
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+          <div class="container-fluid">
+            <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="ms-auto d-flex">
+              <div class="dropdown me-3">
+                <a class="nav-link position-relative" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-bell fs-5"></i>
+                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    3
+                  </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+                  <li><h6 class="dropdown-header">Notifications</h6></li>
+                  <li><a class="dropdown-item" href="#">New user registered</a></li>
+                  <li><a class="dropdown-item" href="#">Content updated</a></li>
+                  <!-- <li><a class="dropdown-item" href="#">New comment received</a></li> -->
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">View all notifications</a></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle me-2" width="32" height="32">
+                  <span>Admin</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        
+        <!-- Content Area -->
+        <div class="container-fluid py-4">
+          <% if (page === 'dashboard') { %>
+            <%- include('partials/content-sections/dashboard') %>
+          <% } else if (page === 'social-media') { %>
+            <%- include('partials/content-sections/social-media') %>
+          <% } else if (page === 'photo-gallery') { %>
+            <%- include('partials/content-sections/photo-gallery') %>
+          <% } else if (page === 'video-gallery') { %>
+            <%- include('partials/content-sections/video-gallery') %>
+          <% } else if (page === 'user-management') { %>
+            <%- include('partials/content-sections/user-management') %>
+          <% } %>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+  <%- include('partials/footer') %>
+</body>
+</html>
